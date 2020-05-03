@@ -1,7 +1,7 @@
-$blue = #216ada;
-$green = #76bc61;
-$white = #ffffff;
-$black = #000000;
+$blue: #216ada;
+$green: #76bc61;
+$white: #ffffff;
+$black: #000000;
 
 @mixin reset-list {
   margin: 0;
@@ -15,8 +15,13 @@ $black = #000000;
   color: $blue;
 }
 
-@mixin reset-headline {
+@mixin reset-text {
   margin: 0;
   padding: 0;
 }
 
+@mixin headline {
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 500;
+}
