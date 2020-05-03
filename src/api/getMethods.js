@@ -1,13 +1,25 @@
 import request from "./Request.js";
-import Store from '../store/index.js';
 
 global.loadHospitals = () => {
 	return request.get('/hospitals/all');
 };
 
-global.loadAvailableDoctors = () => {
+global.loadAvailableDoctors = (hospitalId) => {
 	let now = new Date();
 	let currentDate = now.format('yyyy-mm-dd');
 
-	return request.get(`schedule/by-hospital-and-date?hospital_id=${Store.state.currentHospital}&date=${currentDate}`);
+	return request.get(`schedule/by-hospital-and-date?hospital_id=${hospitalId}&date=${currentDate}`);
 };
+
+global.authentication = (authInfo) => {
+	return new Promise((res) => {
+		console.log(authInfo)
+		res(
+			{
+				id: 1,
+				role: 'doctor',
+				name: 'Ivan',
+			}
+		);
+	})
+}

@@ -4,7 +4,7 @@ import Home from '../views/Home.vue';
 import Auth from '../views/AuthPage.vue';
 import Register from '../views/RegistrationPage.vue';
 import ChooseUser from "../views/ChooseUser.vue";
-import CommonPage from "../views/CommonPage";
+import CommonPage from "../components/CommonPage";
 
 Vue.use(VueRouter);
 
@@ -20,7 +20,7 @@ const routes = [
 		component: Auth,
 	},
 	{
-		path: '/register',
+		path: '/register/:role',
 		name: 'Registration',
 		component: Register,
 	},
