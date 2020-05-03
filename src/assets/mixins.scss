@@ -1,0 +1,48 @@
+$blue: #216ada;
+$green: #76bc61;
+$white: #ffffff;
+$black: #000000;
+$grey: #888888;
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin reset-link {
+  font: inherit;
+  text-decoration: none;
+  color: $blue;
+}
+
+@mixin reset-text {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin headline {
+  margin: 0;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 500;
+}
+
+@mixin button {
+  box-sizing: border-box;
+  color: $white;
+  border: none;
+  border-radius: 5px;
+  background: $blue;
+  background:linear-gradient(to right top, $blue, $green);
+  box-shadow: none;
+  outline: none;
+}
+
+@mixin input {
+  padding: 10px;
+  border: 1px solid $grey;
+  border-radius: 5px;
+  outline: none;
+}
+
