@@ -240,6 +240,6 @@ export default class RegistrationPage extends Vue {
   };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

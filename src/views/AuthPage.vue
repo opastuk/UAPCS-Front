@@ -12,30 +12,29 @@
 				action="#"
 			>
 				<label
-					class="auth__label"
+					class="auth__label visually-hidden"
 					for="login"
-				>Логин:
-					<input
-						id="login"
-						class="auth__input"
-						type="text"
-						name="login"
-						placeholder="ivanov@gmail.com"
-						required
-					/>
-				</label>
+				/>Логин:
+				<input
+					id="login"
+					class="auth__input"
+					type="text"
+					name="login"
+					placeholder="Логин"
+					required
+				/>
 				<label
-					class="auth__label"
+					class="auth__label visually-hidden"
 					for="login"
-				>Пароль:
-					<input
-						id="password"
-						class="auth__input"
-						type="password"
-						name="password"
-						required
-					/>
-				</label>
+				/>Пароль:
+				<input
+					id="password"
+					class="auth__input"
+					type="password"
+					name="password"
+					placeholder="Пароль"
+					required
+				/>
 			</form>
 		</div>
 	</div>
@@ -49,6 +48,6 @@ export default class AuthPage extends Vue {
   };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
