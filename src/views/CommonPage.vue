@@ -1,29 +1,84 @@
 <template>
-	<div class="common-page__wrapper">
-		<div class="common-page__header">
-			<slot name="header"></slot>
-		</div>
-		<div class="common-page__content">
-			<div class="common-page__sidebar">
-				<slot name="sidebar"></slot>
+	<div class="page__wrapper">
+		<header class="header">
+			<ul class="header__list">
+				<li class="header__item">
+					<a class="header__link">ЕССПА</a>
+				</li>
+				<li class="header__item">
+					<a class="header__link">Обратиться к врачу</a>
+				</li>
+        <li class="header__item">
+          <a class="header__link">активные обращения</a>
+        </li>
+				<li class="header__item">
+					<a class="header__link">Войти</a>
+				</li>
+			</ul>
+		</header>
+		<div class="page__content">
+      <div class="sidebar">
+        <div class="sidebar--patient">
+          <ul class="sidebar__list">
+            <li class="sidebar__item">
+              <a class="sidebar__link">Памятки</a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link"></a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link"></a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link"></a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar--doc">
+          <ul class="sidebar__list">
+            <li class="sidebar__item">
+              <a class="sidebar__link"></a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link"></a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link"></a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link"></a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+			<div class="page__dash">
+				<slot name="content" />
 			</div>
-			<div class="common-page__dash">
-				<slot name="content"></slot>
-			</div>
 		</div>
-		<div class="common-page__footer">
-			<slot name="footer"></slot>
-		</div>
+    <footer class="common-page__footer">
+      <ul class="footer__list">
+        <li class="footer__list">
+          <a class="footer__link"><span class="visually-hidden">Octobuzz</span></a>
+          <a class="footer__link"><span class="visually-hidden">VirusHack</span></a>
+        </li>
+      </ul>
+    </footer>
 	</div>
 </template>
 
 <script>
-	import { Vue, Component} from 'vue-property-decorator'
+import { Vue, Component} from 'vue-property-decorator';
 
 	@Component({})
-  export default class CommonPage extends Vue {
+export default class CommonPage extends Vue {
 
-  }
+	}
 </script>
 
 <style scoped lang="scss">

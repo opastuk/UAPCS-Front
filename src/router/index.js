@@ -29,6 +29,11 @@ const routes = [
 		name: 'Choose User',
 		component: ChooseUser,
 	},
+  {
+    path: '/test',
+    name: 'TEST',
+    component: CommonPage,
+  }
 ];
 
 const router = new VueRouter({
