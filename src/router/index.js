@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Auth from '../views/AuthPage.vue';
 import Register from '../views/RegistrationPage.vue';
 import ChooseUser from "../views/ChooseUser.vue";
+import CommonPage from "../views/CommonPage";
 
 Vue.use(VueRouter);
 
@@ -27,10 +28,6 @@ const routes = [
 		path: '/choose-user',
 		name: 'Choose User',
 		component: ChooseUser,
-	},
-	{
-		path: '/dashboard',
-		name: 'dashboard',
 	},
 ];
 
