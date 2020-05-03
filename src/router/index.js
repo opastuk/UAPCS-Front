@@ -5,7 +5,7 @@ import Auth from '../views/AuthPage.vue';
 import Register from '../views/RegistrationPage.vue';
 import ChooseUser from "../views/ChooseUser.vue";
 import CommonPage from "../views/CommonPage";
-
+import AskForm from "../components/AskForm";
 Vue.use(VueRouter);
 
 const routes = [
@@ -29,11 +29,16 @@ const routes = [
 		name: 'Choose User',
 		component: ChooseUser,
 	},
-  {
-    path: '/test',
-    name: 'TEST',
-    component: CommonPage,
-  }
+	{
+		path: '/test',
+		name: 'TEST',
+		component: CommonPage,
+	},
+	{
+		path: '/test1',
+		name: 'TEST',
+		component: AskForm,
+	},
 ];
 
 const router = new VueRouter({
