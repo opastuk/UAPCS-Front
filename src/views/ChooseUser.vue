@@ -57,11 +57,11 @@ export default class ChooseUser extends Vue {
       width: 250px;
       height: 65px;
       padding: 20px 30px;
-      color: #ffffff;
+      color: $white;
       border: none;
       border-radius: 5px;
-      background: #216ada;
-      background:linear-gradient(to right top, #216ada, #76bc61);
+      background: $blue;
+      background:linear-gradient(to right top, $blue, $green);
       &:hover {
         cursor: pointer;
         opacity: 0.9;
