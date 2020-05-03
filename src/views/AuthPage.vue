@@ -102,8 +102,8 @@ export default class AuthPage extends Vue {
   }
   &__input {
     width: 300px;
-    @include input();
     margin-bottom: 30px;
+    @include input();
     &:last-of-type {
       margin-bottom: 45px;
     }
