@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import Auth from '../views/Auth';
+import Auth from '../views/AuthPage.vue';
 
 Vue.use(VueRouter);
 
