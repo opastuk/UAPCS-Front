@@ -158,6 +158,7 @@ export default class CommonPage extends Vue {
     padding: 30px;
     text-align: center;
     background-color: $white;
+    border-radius: 10px;
     &__list {
       @include reset-list();
     }
