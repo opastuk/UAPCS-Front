@@ -14,7 +14,7 @@ export default class Api {
   hospitals () {
     axios.get(`${this.host}/hospitals`).then((response) => {
       return response.data
-    })
+    }). catch((e) => console.log(e.message))
   }
 }
 
