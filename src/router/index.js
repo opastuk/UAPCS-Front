@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Auth from '../views/AuthPage.vue';
 import Register from '../views/RegistrationPage';
 import ChooseUser from "../views/ChooseUser";
+import CommonPage from "../views/CommonPage";
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,7 @@ const routes = [
 	{
 		path: '/dashboard',
 		name: 'dashboard',
+		component: CommonPage,
 	},
 ];
 
