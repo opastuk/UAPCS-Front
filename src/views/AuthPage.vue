@@ -89,8 +89,8 @@ export default class AuthPage extends Vue {
   }
   &__button {
     width: 150px;
-    @include button();
     padding: 15px 20px;
+    @include button();
     &:hover,
     &:focus {
       cursor: pointer;

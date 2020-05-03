@@ -18,6 +18,7 @@
     font-family: "Roboto regular", sans-serif;
     font-size: 18px;
     line-height: 24px;
+    background-color: #eeeeee;
   }
 
   .visually-hidden {
