@@ -29,11 +29,6 @@ const routes = [
 		name: 'Choose User',
 		component: ChooseUser,
 	},
-	{
-		path: '/dashboard',
-		name: 'dashboard',
-		component: CommonPage,
-	},
 ];
 
 const router = new VueRouter({
