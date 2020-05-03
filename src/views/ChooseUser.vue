@@ -53,16 +53,12 @@ export default class ChooseUser extends Vue {
       text-align: center;
     }
     &__button {
-      box-sizing: border-box;
       width: 250px;
       height: 65px;
       padding: 20px 30px;
-      color: $white;
-      border: none;
-      border-radius: 5px;
-      background: $blue;
-      background:linear-gradient(to right top, $blue, $green);
-      &:hover {
+      @include button();
+      &:hover,
+      &:focus {
         cursor: pointer;
         opacity: 0.9;
       }
