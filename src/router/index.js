@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import Auth from '../views/Auth';
-import Register from '../views/RegistrationPage';
-import ChooseUser from "../views/ChooseUser";
+import Auth from '../views/AuthPage.vue';
+import Register from '../views/RegistrationPage.vue';
+import ChooseUser from "../views/ChooseUser.vue";
 
 Vue.use(VueRouter);
 

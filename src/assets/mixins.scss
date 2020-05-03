@@ -1,0 +1,22 @@
+$blue = #216ada;
+$green = #76bc61;
+$white = #ffffff;
+$black = #000000;
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin reset-link {
+  font: inherit;
+  text-decoration: none;
+  color: $blue;
+}
+
+@mixin reset-headline {
+  margin: 0;
+  padding: 0;
+}
+
