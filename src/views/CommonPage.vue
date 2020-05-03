@@ -85,132 +85,148 @@ export default class CommonPage extends Vue {
 </script>
 
 <style scoped lang="scss">
-  .header {
-    box-sizing: border-box;
-    width: 100%;
-    height: 80px;
-    padding: 20px 50px;
-    display: flex;
-    background-color: $white;
-    box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
-    //position: fixed;
-    &__list {
-      @include reset-list();
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    &__item {
-      &--logo {
-        padding-left: 70px;
-        position: relative;
-        font-size: 25px;
-        font-weight: 600;
-        &::before {
-          content: "";
-          width: 65px;
-          height: 65px;
-          position: absolute;
-          top: -22px;
-          left: -5px;
-          border: 1px solid $green;
-          border-radius: 50px;
-        }
-      }
-      &--sign-in {
-        padding: 15px 20px 15px 80px;
-        position: relative;
-        border: 1px solid $green;
-        border-radius: 25px;
-        &::before {
-          content: "";
-          width: 45px;
-          height: 45px;
-          position: absolute;
-          top: 3px;
-          left: 15px;
-          border: 1px solid $green;
-          border-radius: 50px;
-        }
-      }
-      &:hover,
-      &:focus {
-        cursor: pointer;
-        opacity: 0.9;
-      }
-      &:active {
-        opacity: 0.8;
-      }
-    }
-    &__link {
-      @include reset-link();
-      color: $black;
-      &--button {
-        @include button();
-        padding: 15px;
-      }
-    }
-  }
-  .sidebar {
-    box-sizing: border-box;
-    width: 300px;
-    padding: 30px;
-    text-align: center;
-    background-color: $white;
-    border-radius: 10px;
-    &__list {
-      @include reset-list();
-    }
-    &__item {
-      padding: 20px 0;
-    }
-    &__link {
-      display: block;
-      width: 100%;
-      @include reset-link();
-      color: $black;
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
-  }
-  .footer {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100px;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #111111;
-    position: absolute;
-    bottom: 0;
-    &__list {
-      @include reset-list();
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    &__text {
-      position: relative;
-      padding-left: 80px;
-      font-size: 35px;
-      font-weight: 300;
-      color: $white;
-      text-transform: uppercase;
-      &::before {
-        content: "";
-        width: 65px;
-        height: 65px;
-        position: absolute;
-        top: -22px;
-        left: 0;
-        background-color: $white;
-        border-radius: 50px;
-      }
-    }
-  }
+	.page{
+		&__wrapper {
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+		}
+
+		&__content {
+			height: 100%;
+		}
+		&__dash{
+			overflow: scroll;
+		}
+	}
+
+		.header {
+			box-sizing: border-box;
+			width: 100%;
+			height: 80px;
+			padding: 20px 50px;
+			display: flex;
+			background-color: $white;
+			box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+			//position: fixed;
+			&__list {
+				@include reset-list();
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			&__item {
+				&--logo {
+					padding-left: 70px;
+					position: relative;
+					font-size: 25px;
+					font-weight: 600;
+					&::before {
+						content: "";
+						width: 65px;
+						height: 65px;
+						position: absolute;
+						top: -22px;
+						left: -5px;
+						border: 1px solid $green;
+						border-radius: 50px;
+					}
+				}
+				&--sign-in {
+					padding: 15px 20px 15px 80px;
+					position: relative;
+					border: 1px solid $green;
+					border-radius: 25px;
+					&::before {
+						content: "";
+						width: 45px;
+						height: 45px;
+						position: absolute;
+						top: 3px;
+						left: 15px;
+						border: 1px solid $green;
+						border-radius: 50px;
+					}
+				}
+				&:hover,
+				&:focus {
+					cursor: pointer;
+					opacity: 0.9;
+				}
+				&:active {
+					opacity: 0.8;
+				}
+			}
+			&__link {
+				@include reset-link();
+				color: $black;
+				&--button {
+					@include button();
+					padding: 15px;
+				}
+			}
+		}
+		.sidebar {
+			box-sizing: border-box;
+			width: 18%;
+			padding: 30px;
+			text-align: center;
+			background-color: $white;
+			border-radius: 10px;
+			margin-top: 30px;
+			margin-left: 50px;
+			&__list {
+				@include reset-list();
+			}
+			&__item {
+				padding: 20px 0;
+			}
+			&__link {
+				display: block;
+				width: 100%;
+				@include reset-link();
+				color: $black;
+				&:hover {
+					cursor: pointer;
+					text-decoration: underline;
+				}
+			}
+		}
+		.footer {
+			box-sizing: border-box;
+			width: 100%;
+			height: 100px;
+			padding: 20px 50px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #111111;
+			&__list {
+				@include reset-list();
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			&__text {
+				position: relative;
+				padding-left: 80px;
+				font-size: 35px;
+				font-weight: 300;
+				color: $white;
+				text-transform: uppercase;
+				&::before {
+					content: "";
+					width: 65px;
+					height: 65px;
+					position: absolute;
+					top: -22px;
+					left: 0;
+					background-color: $white;
+					border-radius: 50px;
+				}
+			}
+		}
 
 </style>
