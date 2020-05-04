@@ -1,5 +1,4 @@
 <template>
-  <div>
     <common-page>
       <template v-slot:headline>
         <h1 class="ask__headline">Анкета обращения к врачу</h1>
@@ -186,7 +185,6 @@
         </div>
       </template>
     </common-page>
-  </div>
 </template>
 
 <script>
@@ -204,5 +202,7 @@ export default class AskFormPage extends Vue {
 </script>
 
 <style scoped lang="scss">
-
+.ask-page__wrapper {
+  height: 100%;
+}
 </style>

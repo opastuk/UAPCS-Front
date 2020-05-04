@@ -6,15 +6,18 @@
 					<a class="header__link">ЕССПА</a>
 				</li>
 				<li class="header__item">
-					<apply-button :is-doctor="isDoctor"/>
+					<apply-button :is-doctor="isDoctor" />
 				</li>
 				<li class="header__item header__item--sign-in">
-					<a class="header__link">{{user.name}}</a>
+					<a class="header__link">{{ user.name }}</a>
 				</li>
 			</ul>
 		</header>
 		<div class="page__content">
-			<sidebar :is-doctor="isDoctor"/>
+      <div class="page__content_main">
+        <div v-if="showSidebar" class="page__sidebar-container">
+          <sidebar class="page__sidebar" :is-doctor="isDoctor" />
+        </div>
 			<div class="page__dash">
 				<slot name="headline" />
 				<slot name="content" />
@@ -32,6 +35,7 @@
 				</li>
 			</ul>
 		</footer>
+    </div>
 	</div>
 </template>
 <script>
@@ -47,13 +51,17 @@ import ApplyButton from "./ApplyButton.vue";
 	})
 export default class CommonPage extends Vue {
 	  user = {};
+	  showSidebar = true;
 
 	  mounted() {
-	    this.user = this.$store.getters["user/getUserInfo"]
-		}
-		get isDoctor() {
+	    this.user = this.$store.getters["user/getUserInfo"];
+	    if(this.$router.currentRoute.path === '/') {
+	      this.showSidebar = false;
+      }
+	  }
+	  get isDoctor() {
 	    return this.user.role === 2;
-		}
+	  }
 	}
 </script>
 
@@ -62,28 +70,43 @@ export default class CommonPage extends Vue {
 		&__wrapper {
 			height: 100%;
 			display: flex;
+      overflow: scroll;
 			justify-content: space-between;
 			flex-direction: column;
 		}
 
 		&__content {
-			height: 100%;
+      height: fit-content;
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
+
+      &_main {
+        display: flex;
+        flex-direction: row;
+        padding: 120px 50px 30px;
+      }
 		}
 		&__dash{
-			overflow: scroll;
-      height: 100%;
+      height: fit-content;
+      min-height: 70vh;
 			padding: 30px;
 			background-color: $white;
-			max-width: 80%;
-			min-width: 70%;
-			margin: 30px 50px 30px auto;
+			width: 100%;
 			border-radius: 10px;
 		}
+
+    &__sidebar {
+     position: fixed;
+    }
+
+    &__sidebar-container{
+      width: 25%;
+      margin-right: 25px;
+    }
 	}
 
 		.header {
+      position: fixed;
 			box-sizing: border-box;
 			width: 100%;
 			height: 80px;
