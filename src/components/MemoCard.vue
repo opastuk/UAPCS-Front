@@ -9,7 +9,7 @@
 		<div v-if="showQuestions" class="memo__body" :key="1">
 			<ul class="memo__list memo__list--main" :key="1">
 				<li class="memo__item memo__item--main" v-for="(question, index) in questions" :key="index"	@click="handleClick(index)" >
-					Что такое обморожение?
+					<p class="memo__item--question">{{question.question}}</p>
 					<transition name="fade">
 						<p v-if="currentActive.includes(index)" class="memo__main-text" v-html="question.answer" />
 					</transition>
@@ -25,7 +25,7 @@ import { Vue, Component} from 'vue-property-decorator';
 
 const QUESTIONS = [
   {
-    question: 'Как оформить заказ?',
+    question: 'Что такое Обморожение?',
     answer: 'Тестовый текст - поменяйте на что-то осмысленное',
   },
 ];
@@ -67,6 +67,7 @@ export default class MemoCard extends Vue {
       background-color: #3d336d;
       border-radius: 40px;
       position: relative;
+			z-index: 10000;
       &:hover {
         cursor: pointer;
       }
@@ -123,14 +124,20 @@ export default class MemoCard extends Vue {
       justify-content: center;
       position: relative;
 			padding: 10px;
-      &::after {
-        content: "";
-        width: 100%;
-        height: 1px;
-        position: absolute;
-        bottom: 0;
-        background-color: #888888;
-      }
+
+			&--question{
+				position: relative;
+				margin: 0;
+				&::after {
+					content: "";
+					width: 100%;
+					height: 1px;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					background-color: #888888;
+				}
+			}
     }
     &__main-text {
       @include reset-text();
@@ -138,11 +145,41 @@ export default class MemoCard extends Vue {
     }
   }
 
+
+
+	@keyframes slideDown {
+		0% {
+			opacity: 0;
+			transform: translateY(-70%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+	}
+
+	@keyframes slideUp {
+		0% {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+		100% {
+			opacity: 0;
+			transform: translateY(-70%);
+		}
+
+	}
 	.fade-enter-active, .fade-leave-active {
-		transition: opacity .2s ease-in-out;
+		animation-name: slideDown;
+		animation-duration: .3s;
+		animation-timing-function: ease;
+		visibility: visible !important;
 	}
 
 	.fade-enter, .fade-leave-to {
-		opacity: 0;
+		animation-name: slideUp;
+		animation-duration: .3s;
+		animation-timing-function: ease;
+		visibility: visible !important;
 	}
 </style>
