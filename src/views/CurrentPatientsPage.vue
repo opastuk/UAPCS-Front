@@ -1,17 +1,17 @@
 <template>
 	<common-page>
 		<template v-slot:headline>
-			<h1 class="my-appeal__headline">
-				Мои обращения
+			<h1 class="current-patients__headline">
+				Мои пациенты
 			</h1>
-      <div class="my-appeal__sort">
-        <button class="my-appeal__sort-button">Актвные</button>
-        <button class="my-appeal__sort-button">Архив</button>
+      <div class="current-patients__sort">
+        <button class="current-patients__sort-button">Актвные</button>
+        <button class="current-patients__sort-button">Архив</button>
       </div>
 		</template>
-    <template v-slot:content>
-      <patient-card/>
-    </template>
+		<template v-slot:content>
+			<patient-card />
+		</template>
 	</common-page>
 </template>
 
@@ -26,13 +26,12 @@ import PatientCard from '../components/PatientCard.vue';
   		'patient-card': PatientCard,
   	}
   })
-export default class MyAppealPage extends Vue {
-
+export default class CurrentPatientsPage extends Vue {
   }
 </script>
 
 <style scoped lang="scss">
-  .my-appeal {
+  .current-patients {
     &__headline {
       @include reset-text();
       margin-bottom: 50px;

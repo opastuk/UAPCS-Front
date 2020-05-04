@@ -31,7 +31,7 @@
 					<router-link class="sidebar__link" to="/active-appeal">Активные обращения</router-link>
 				</li>
 				<li class="sidebar__item">
-					<a class="sidebar__link">Мои пациенты</a>
+					<router-link class="sidebar__link" to="/my-patients">Мои пациенты</router-link>
 				</li>
 				<li class="sidebar__item">
 					<a class="sidebar__link">Сообщения</a>
