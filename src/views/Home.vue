@@ -8,7 +8,7 @@
 						<br /> мы дорожим вашим временем
 					</h1>
 					<img
-						class="landing__img"
+						class="landing__img landing__img--main"
 						src="../assets/img/main-image.jpg"
 						alt="ЕССПА - мы дорожим вашим временем"
 						width="600px"
@@ -67,10 +67,10 @@
 						</li>
 					</ul>
 					<img
-						class="landing__img"
+						class="landing__img landing__img--isolation"
 						src="../assets/img/isolate.png"
 						alt="Самоизоляция"
-						width="700px"
+						width="650px"
 					/>
 				</section>
 			</div>
@@ -126,12 +126,24 @@ export default class Home extends Vue {
       text-align: center;
     }
     &__list {
+      min-width: 280px;
       padding: 0;
       margin: 0 0 0 50px;
     }
     &__item {
       font-size: 20px;
       padding: 10px;
+    }
+    &__img {
+      height: auto;
+      &--main {
+        min-width: 450px;
+        max-width: 600px;
+      }
+      &--isolation {
+        min-width: 450px;
+        max-width: 650px;
+      }
     }
     &__hashtag {
       color: $blue;
