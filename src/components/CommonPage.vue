@@ -109,6 +109,7 @@ export default class CommonPage extends Vue {
 			display: flex;
 			background-color: $white;
 			box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+      z-index: 10;
 			&__list {
 				@include reset-list();
 				width: 100%;
