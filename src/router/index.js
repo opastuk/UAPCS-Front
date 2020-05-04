@@ -7,6 +7,7 @@ import ChooseUser from "../views/ChooseUser.vue";
 import AskForm from "../components/AskForm";
 import CommonPage from "../components/CommonPage";
 import Store from '../store/user.js';
+import MemoCard from '../components/MemoCard';
 
 Vue.use(VueRouter);
 
@@ -32,12 +33,17 @@ const routes = [
 		component: ChooseUser,
 	},
 	{
+		path: '/test3',
+		name: 'Choose User',
+		component: MemoCard,
+	},
+	{
 		path: '/test',
 		name: 'TEST',
 		component: CommonPage,
-    beforeEnter: (to, from, next) => {
-			if(to.name !== 'Auth' && !Store.state.isAuth) {
-				next({name: 'Auth'})
+		beforeEnter: (to, from, next) => {
+			if (to.name !== 'Auth' && !Store.state.isAuth) {
+				next({name: 'Auth'});
 			} else {
 				next();
 			}
@@ -48,8 +54,8 @@ const routes = [
 		name: 'TEST1',
 		component: AskForm,
 		beforeEnter: (to, from, next) => {
-			if(to.name !== 'Auth' && !Store.state.isAuth) {
-				next({name: 'Auth'})
+			if (to.name !== 'Auth' && !Store.state.isAuth) {
+				next({name: 'Auth'});
 			} else {
 				next();
 			}
