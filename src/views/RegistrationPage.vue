@@ -8,7 +8,6 @@
 				Зарегистрируйтесь:
 			</h2>
 			<div
-				v-if="doctor"
 				class="registration__form-wrapper"
 			>
 				<form
@@ -26,6 +25,7 @@
 							name="name"
 							placeholder="Иванов Иван Иванович"
 							required
+							v-model="userInfo.name"
 						/>
 					</label>
 					<label
@@ -37,20 +37,23 @@
 							class="registration__input"
 							type="date"
 							name="birthday"
-              placeholder="дд/мм/гггг"
+							placeholder="дд/мм/гггг"
+							v-model="userInfo.birthday"
 							required
 						/>
 					</label>
 					<label
 						class="registration__label"
 						for="id"
-					>Индивидуальный номер врача:
+					>{{identifyType}}
 						<input
 							id="doctor-id"
 							class="registration__input"
 							type="text"
 							name="id"
+							v-mask="'####-####-####-####'"
 							placeholder="0000-0000-0000-0000"
+							v-model="userInfo.id"
 							required
 						/>
 					</label>
@@ -63,7 +66,9 @@
 							class="registration__input"
 							type="select"
 							name="clinic"
+							v-model="hospitalId"
 							required
+							v-if="!isDoctor"
 						/>
 					</label>
 					<label
@@ -75,6 +80,7 @@
 							class="registration__input"
 							type="email"
 							name="email"
+							v-model="userInfo.mail"
 							placeholder="ivanov@gmail.com"
 							required
 						/>
@@ -88,6 +94,8 @@
 							class="registration__input"
 							type="tel"
 							name="phone"
+							v-mask="'+7 ### ### ## ##'"
+							v-model="userInfo.phone"
 							placeholder="+7 000 000 00 00"
 							required
 						/>
@@ -101,130 +109,14 @@
 							class="registration__input"
 							type="password"
 							name="password"
+							v-model="userInfo.password"
 							required
 						/>
 					</label>
 					<button
 						class="registration__button"
 						type="submit"
-					>
-						Отправить
-					</button>
-				</form>
-			</div>
-			<div
-				v-if="!doctor"
-				class="registration_-wrapper"
-			>
-				<form
-					class="registration__form"
-					action="#"
-				>
-					<label
-						class="registration__label"
-						for="name"
-					>ФИО:
-						<input
-							id="name"
-							class="registration__input"
-							type="text"
-							name="name"
-							placeholder="Иванов Иван Иванович"
-							required
-						/>
-					</label>
-					<label
-						class="registration__label"
-						for="birthday"
-					>Дата рождения:
-						<input
-							id="birthday"
-							class="registration__input"
-							type="date"
-              placeholder="дд/мм/гггг"
-							name="birthday"
-							required
-						/>
-					</label>
-					<label
-						class="registration__label"
-						for="id"
-					>Полис:
-						<input
-							id="id"
-							class="registration__input"
-							type="text"
-							name="id"
-							placeholder="0000-0000-0000-0000"
-							required
-						/>
-					</label>
-					<label
-						class="registration__label"
-						for="name"
-					>Адрес:
-						<input
-							id="address"
-							class="registration__input"
-							type="text"
-							name="address"
-							placeholder="г.Москва, ул. Маршала Жукова, д. 5, кв. 50"
-							required
-						/>
-					</label>
-					<label
-						class="registration__label"
-						for="name"
-					>Поликлиника:
-						<input
-							id="clinic"
-							class="registration__input"
-							type="select"
-							name="clinic"
-							required
-						/>
-					</label>
-					<label
-						class="registration__label"
-						for="name"
-					>Электронная почта:
-						<input
-							id="email"
-							class="registration__input"
-							type="email"
-							name="email"
-							placeholder="ivanov@gmail.com"
-							required
-						/>
-					</label>
-					<label
-						class="registration__label"
-						for="name"
-					>Телефон:
-						<input
-							id="phone"
-							class="registration__input"
-							type="tel"
-							name="phone"
-							placeholder="+7 000 000 00 00"
-							required
-						/>
-					</label>
-					<label
-						class="registration__label"
-						for="name"
-					>Пароль:
-						<input
-							id="password"
-							class="registration__input"
-							type="password"
-							name="password"
-							required
-						/>
-					</label>
-					<button
-						class="registration__button"
-						type="submit"
+						@click="send"
 					>
 						Отправить
 					</button>
@@ -239,6 +131,41 @@ import { Vue, Component } from 'vue-property-decorator';
 
   @Component({})
 export default class RegistrationPage extends Vue {
+    userInfo = {
+      id: null,
+      name: '',
+      birthDate: '',
+			email: '',
+			mobilePhone: '',
+			password: '',
+			role: this.role,
+		};
+    hospitalId = 0;
+    hospitals = [];
+
+    mounted() {
+      this.$store.dispatch('receiveHospitals');
+      this.hospitals = this.store.state.hospitals;
+    }
+
+    get role() {
+		  return this.$router.currentRoute.params.role;
+		}
+
+    get identifyType() {
+			return (this.isDoctor ? 'Индивидуальный номер врача:' : 'Полис:');
+		}
+
+		get isDoctor() {
+      return this.role === 'doctor';
+		}
+
+		send() {
+			this.$store.dispatch('user/registration', this.userInfo).then(() => {
+        this.$store.commit('setHospital', this.hospitalId);
+			  this.$router.push('/asuth')
+      })
+		}
   };
 </script>
 

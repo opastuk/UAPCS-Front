@@ -8,11 +8,8 @@
 				Выберите пользователя:
 			</h2>
 			<div class="choose-user__button-wrapper">
-				<button class="choose-user__button">
-					Я - врач
-				</button>
-				<button class="choose-user__button">
-					Я - пациент
+				<button class="choose-user__button" v-for="role in roles" @click="chooseUser(role.userRole)">
+					{{role.buttonText}}
 				</button>
 			</div>
 		</div>
@@ -24,6 +21,30 @@ import { Vue, Component } from 'vue-property-decorator';
 
   @Component({})
 export default class ChooseUser extends Vue {
+    roles = [
+			{
+			  buttonText: 'Я - врач',
+				userRole: 'doctor',
+			},
+			{
+			  buttonText: 'Я - пациент',
+        userRole: 'patient'
+			}
+		];
+
+    isSecondEntry = false;
+
+		mounted() {
+		  this.isSecondEntry = isSecondEntry();
+    }
+
+    chooseUser(userRole) {
+      if(!this.isSecondEntry) {
+        this.$router.push(`/register/${userRole}`);
+      } else {
+        this.$router.push('/auth');
+			}
+		}
   };
 </script>
 

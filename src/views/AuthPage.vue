@@ -24,6 +24,7 @@
 					name="login"
 					placeholder="Логин"
 					required
+					v-model="login"
 				/>
 				<label
 					class="auth__label visually-hidden"
@@ -38,10 +39,12 @@
 					name="password"
 					placeholder="Пароль"
 					required
+					v-model="password"
 				/>
 				<button
 					class="auth__button"
 					type="submit"
+					@click="enter"
 				>
 					Войти
 				</button>
@@ -55,6 +58,17 @@ import { Vue, Component } from 'vue-property-decorator';
 
   @Component({})
 export default class AuthPage extends Vue {
+    login = '';
+    password = '';
+
+ 	 enter() {
+ 	   this.$store.dispatch('user/auth', {login: this.login, password: this.password})
+	 }
+
+	 mounted() {
+		 setSecondEntry()
+   }
+
   };
 </script>
 
