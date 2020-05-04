@@ -18,7 +18,7 @@
 					<a class="sidebar__link">Настройки</a>
 				</li>
 				<li class="sidebar__item">
-					<a class="sidebar__link">Помощь</a>
+					<a class="sidebar__link">Выйти</a>
 				</li>
 			</ul>
 		</div>
@@ -40,7 +40,7 @@
 					<a class="sidebar__link">Настройки</a>
 				</li>
 				<li class="sidebar__item">
-					<a class="sidebar__link">Помощь</a>
+					<a class="sidebar__link">Выйти</a>
 				</li>
 			</ul>
 		</div>
