@@ -6,58 +6,17 @@
 					<a class="header__link">ЕССПА</a>
 				</li>
 				<li class="header__item">
-					<a class="header__link header__link--button">Обратиться к врачу</a>
-				</li>
-				<li class="header__item">
-					<a class="header__link header__link--button">Активные обращения</a>
+					<apply-button :is-doctor="isDoctor"/>
 				</li>
 				<li class="header__item header__item--sign-in">
-					<a class="header__link">Войти</a>
+					<a class="header__link">{{user.name}}</a>
 				</li>
 			</ul>
 		</header>
 		<div class="page__content">
-			<div class="sidebar">
-				<div class="sidebar--patient">
-					<ul class="sidebar__list">
-						<li class="sidebar__item">
-							<a class="sidebar__link">Памятки</a>
-						</li>
-						<li class="sidebar__item">
-							<a class="sidebar__link">Мои обращения</a>
-						</li>
-						<li class="sidebar__item">
-							<a class="sidebar__link">Сообщения</a>
-						</li>
-						<li class="sidebar__item">
-							<a class="sidebar__link">Настройки</a>
-						</li>
-						<li class="sidebar__item">
-							<a class="sidebar__link">Помощь</a>
-						</li>
-					</ul>
-				</div>
-				<div class="sidebar--doc">
-					<ul class="sidebar__list">
-						<li class="sidebar__item">
-							<a class="sidebar__link">Активные обращения</a>
-						</li>
-						<li class="sidebar__item">
-							<a class="sidebar__link">Мои пациенты</a>
-						</li>
-						<li class="sidebar__item">
-							<a class="sidebar__link">Сообщения</a>
-						</li>
-						<li class="sidebar__item">
-							<a class="sidebar__link">Настройки</a>
-						</li>
-						<li class="sidebar__item">
-							<a class="sidebar__link">Помощь</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<sidebar :is-doctor="isDoctor"/>
 			<div class="page__dash">
+				<slot name="headline" />
 				<slot name="content" />
 			</div>
 		</div>
@@ -77,10 +36,24 @@
 </template>
 <script>
 import { Vue, Component} from 'vue-property-decorator';
+import Sidebar from './Sidebar.vue';
+import ApplyButton from "./ApplyButton.vue";
 
-	@Component({})
+	@Component({
+		components: {
+		  'sidebar': Sidebar,
+			'apply-button': ApplyButton,
+		},
+	})
 export default class CommonPage extends Vue {
+	  user = {};
 
+	  mounted() {
+	    this.user = this.$store.getters["user/getUserInfo"]
+		}
+		get isDoctor() {
+	    return this.user.role === 2;
+		}
 	}
 </script>
 
@@ -95,9 +68,17 @@ export default class CommonPage extends Vue {
 
 		&__content {
 			height: 100%;
+			display: flex;
+			flex-direction: row;
 		}
 		&__dash{
 			overflow: scroll;
+			padding: 30px;
+			background-color: $white;
+			max-width: 70%;
+			min-width: 65%;
+			margin: 30px 50px 30px auto;
+			border-radius: 10px;
 		}
 	}
 
@@ -158,41 +139,8 @@ export default class CommonPage extends Vue {
 					opacity: 0.8;
 				}
 			}
-			&__link {
-				@include reset-link();
-				color: $black;
-				&--button {
-					@include button();
-					padding: 15px;
-				}
-			}
 		}
-		.sidebar {
-			box-sizing: border-box;
-			width: 18%;
-			padding: 30px;
-			text-align: center;
-			background-color: $white;
-			border-radius: 10px;
-			margin-top: 30px;
-			margin-left: 50px;
-			&__list {
-				@include reset-list();
-			}
-			&__item {
-				padding: 20px 0;
-			}
-			&__link {
-				display: block;
-				width: 100%;
-				@include reset-link();
-				color: $black;
-				&:hover {
-					cursor: pointer;
-					text-decoration: underline;
-				}
-			}
-		}
+
 		.footer {
 			box-sizing: border-box;
 			width: 100%;
