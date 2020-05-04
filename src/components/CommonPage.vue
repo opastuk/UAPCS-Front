@@ -65,7 +65,7 @@ export default class CommonPage extends Vue {
 	  showSidebar = true;
 
 	  mounted() {
-	    this.user = this.$store.getters["user/getUserInfo"];
+	    this.user = this.$store.state.user.userInfo;
 	    if (this.$router.currentRoute.path === '/' || this.$router.currentRoute.path === '/404') {
 	      this.showSidebar = false;
 	  	}

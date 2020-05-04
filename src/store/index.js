@@ -23,9 +23,7 @@ export default new Vuex.Store({
 		}
 	},
 	actions: {
-		receiveHospitals(context) {
-			getRequest.loadHospitals().then((hospitals) => context.commit('setHospitals', hospitals.data)).catch((e) => console.log('К сожалению мы не нашли поликлиник в базе'));
-		},
+
 		receiveDoctorsList(context){
 			getRequest.loadAvailableDoctors(context.state.currentHospital).then((doctors) => context.commit('setDoctorsList', doctors.data)).catch((e) => console.log('К сожалению ни одного врачча не найдено'));
 		}

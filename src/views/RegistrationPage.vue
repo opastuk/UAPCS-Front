@@ -35,10 +35,11 @@
 						<input
 							id="doctor-birthday"
 							class="registration__input"
-							type="date"
+							type="text"
 							name="birthday"
-							placeholder="дд/мм/гггг"
-							v-model="userInfo.birthday"
+							v-mask="'##-##-####'"
+							placeholder="дд-мм-гггг"
+							v-model="userInfo.birthDate"
 							required
 						/>
 					</label>
@@ -96,7 +97,7 @@
 							type="tel"
 							name="phone"
 							v-mask="'+7 ### ### ## ##'"
-							v-model="userInfo.phone"
+							v-model="userInfo.mobilePhone"
 							placeholder="+7 000 000 00 00"
 							required
 						/>
@@ -114,13 +115,12 @@
 							required
 						/>
 					</label>
-					<button
+					<div
 						class="registration__button"
-						type="submit"
 						@click="send"
 					>
 						Отправить
-					</button>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -129,6 +129,9 @@
 
 <script>
 import { Vue, Component } from 'vue-property-decorator';
+import userRequests from '../api/userRequests.js'
+import getRequest from "../api/getMethods";
+import router from "../router";
 
   @Component({})
 export default class RegistrationPage extends Vue {
@@ -139,18 +142,19 @@ export default class RegistrationPage extends Vue {
 			email: '',
 			mobilePhone: '',
 			password: '',
-			role: this.role,
-      hospitalId: 0,
+			role: null,
+      hospitalId: 0
 		};
-    hospitals = [];
-    role = 1
+    hospitalsList = [];
+
 
     mounted() {
-      this.role = this.$router.currentRoute.params.role;
+      this.userInfo.role = this.$router.currentRoute.params.role;
 			if(!this.isDoctor) {
-        this.$store.dispatch('receiveHospitals');
-        this.hospitals = this.store.state.hospitals;
-      }
+        getRequest.loadHospitals().then(response => {
+          this.hospitalsList = response.data
+        })
+			}
     }
 
 
@@ -162,11 +166,17 @@ export default class RegistrationPage extends Vue {
       return this.role === 2;
 		}
 
+		formatBeforeSend(payload) {
+      const val = payload.replace( /-/g , "");
+      return val;
+		}
+
 		send() {
-			this.$store.dispatch('user/registration', this.userInfo).then(() => {
-        this.$store.commit('setHospital', this.userInfo.hospitalId);
-			  this.$router.push('/auth')
-      })
+      if(this.userInfo.id) {
+        this.userInfo.id = this.formatBeforeSend(this.userInfo.id);
+      }
+      userRequests.registerUser(this.userInfo)
+			router.push('/auth');
 		}
   };
 </script>
@@ -205,6 +215,8 @@ export default class RegistrationPage extends Vue {
     width: 200px;
     padding: 15px;
     align-self: center;
+		display: flex;
+		justify-content: center;
     @include button();
   }
 }
