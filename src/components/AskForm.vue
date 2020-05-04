@@ -1,5 +1,6 @@
 <template>
   <div class="ask">
+    <button class="ask-form__close-button" type="button">Закрыть обращение</button>
     <form class="ask-form" action="#">
       <div class="ask-form__category">
         <h2 class="ask-form__headline">Укажите причину(ы) обращения к врачу:</h2>
@@ -176,7 +177,6 @@
         </div>
       </div>
       <button class="ask-form__button" type="submit">Отправить</button>
-      <button class="ask-form__button" type="button">Назначения</button>
     </form>
   </div>
 </template>
