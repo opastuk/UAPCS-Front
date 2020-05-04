@@ -62,8 +62,8 @@ export default class Sidebar extends Vue {
 		width: 18%;
 		min-width: 200px;
 		height: fit-content;
-		padding: 30px;
-		text-align: center;
+		padding: 20px;
+		text-align: left;
 		background-color: $white;
 		border-radius: 10px;
 
@@ -71,7 +71,18 @@ export default class Sidebar extends Vue {
 	 @include reset-list();
 	 }
 	&__item {
-		 padding: 20px 0;
+    padding: 20px 20px 20px 70px;
+    position: relative;
+    &:before {
+      content: "";
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 5px;
+      left: 0;
+      background-color: #eeeeee;
+      border-radius: 50px;
+    }
 	 }
 	&__link {
 		 display: block;

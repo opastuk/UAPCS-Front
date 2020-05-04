@@ -74,12 +74,10 @@ export default class CommonPage extends Vue {
 			justify-content: space-between;
 			flex-direction: column;
 		}
-
 		&__content {
       height: fit-content;
 			display: flex;
 			flex-direction: column;
-
       &_main {
         display: flex;
         flex-direction: row;
@@ -89,22 +87,19 @@ export default class CommonPage extends Vue {
 		&__dash{
       height: fit-content;
       min-height: 70vh;
-			padding: 30px;
+			padding: 50px;
 			background-color: $white;
 			width: 100%;
 			border-radius: 10px;
 		}
-
     &__sidebar {
      position: fixed;
     }
-
     &__sidebar-container{
       width: 25%;
       margin-right: 25px;
     }
 	}
-
 		.header {
       position: fixed;
 			box-sizing: border-box;
@@ -164,7 +159,6 @@ export default class CommonPage extends Vue {
 				}
 			}
 		}
-
 		.footer {
 			box-sizing: border-box;
 			width: 100%;
@@ -183,7 +177,7 @@ export default class CommonPage extends Vue {
 			&__text {
 				position: relative;
 				padding-left: 80px;
-				font-size: 35px;
+				font-size: 20px;
 				font-weight: 300;
 				color: $white;
 				text-transform: uppercase;

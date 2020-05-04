@@ -26,7 +26,11 @@ export default class AskFormPage extends Vue {
 </script>
 
 <style scoped lang="scss">
-.ask-page__wrapper {
+  .ask__headline {
+    @include reset-text();
+    margin-bottom: 65px;
+  }
+  .ask-page__wrapper {
   height: 100%;
 }
 </style>
