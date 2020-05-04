@@ -1,6 +1,9 @@
 <template>
 	<div class="sidebar">
-		<div v-if="!isDoctor" class="sidebar--patient">
+		<div
+			v-if="!isDoctor"
+			class="sidebar--patient"
+		>
 			<ul class="sidebar__list">
 				<li class="sidebar__item">
 					<a class="sidebar__link">Памятки</a>
@@ -19,7 +22,10 @@
 				</li>
 			</ul>
 		</div>
-		<div v-if="isDoctor" class="sidebar--doc">
+		<div
+			v-if="isDoctor"
+			class="sidebar--doc"
+		>
 			<ul class="sidebar__list">
 				<li class="sidebar__item">
 					<a class="sidebar__link">Активные обращения</a>
@@ -42,30 +48,41 @@
 </template>
 
 <script>
-	import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
 	@Component({})
-  export default class Sidebar extends Vue {
+export default class Sidebar extends Vue {
 	  @Prop(Boolean) isDoctor;
-  }
+	}
 </script>
 
 <style scoped lang="scss">
 	.sidebar {
 		box-sizing: border-box;
 		width: 18%;
+		min-width: 200px;
 		height: fit-content;
-		padding: 30px;
-		text-align: center;
+		padding: 20px;
+		text-align: left;
 		background-color: $white;
 		border-radius: 10px;
-		margin-top: 30px;
-		margin-left: 50px;
+
 	&__list {
 	 @include reset-list();
 	 }
 	&__item {
-		 padding: 20px 0;
+    padding: 20px 20px 20px 70px;
+    position: relative;
+    &:before {
+      content: "";
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 5px;
+      left: 0;
+      background-color: #eeeeee;
+      border-radius: 50px;
+    }
 	 }
 	&__link {
 		 display: block;

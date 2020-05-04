@@ -4,9 +4,10 @@ import Home from '../views/Home.vue';
 import Auth from '../views/AuthPage.vue';
 import Register from '../views/RegistrationPage.vue';
 import ChooseUser from "../views/ChooseUser.vue";
-import AskForm from "../components/AskForm";
-import CommonPage from "../components/CommonPage";
+import AskFormPage from "../views/AskFormPage.vue";
+import CommonPage from "../components/CommonPage.vue";
 import Store from '../store/user.js';
+import NotFoundPage from '../views/NotFoundPage.vue';
 import MemoCard from '../components/MemoCard';
 
 Vue.use(VueRouter);
@@ -32,6 +33,15 @@ const routes = [
 		name: 'Choose User',
 		component: ChooseUser,
 	},
+  {
+    path: '/404',
+    name: 'Not Found',
+    component: NotFoundPage,
+  },
+  {
+    path: '*',
+    redirect: '/404',
+  },
 	{
 		path: '/test3',
 		name: 'Choose User',
@@ -50,9 +60,9 @@ const routes = [
 		}
 	},
 	{
-		path: '/test1',
-		name: 'TEST1',
-		component: AskForm,
+		path: '/ask-form',
+		name: 'Ask Form',
+		component: AskFormPage,
 		beforeEnter: (to, from, next) => {
 			if (to.name !== 'Auth' && !Store.state.isAuth) {
 				next({name: 'Auth'});
