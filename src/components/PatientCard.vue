@@ -1,7 +1,7 @@
 <template>
 	<div class="patient-card">
-    <button v-if="doctor" class="patient-card__button" type="button">Принять пациента</button>
-    <button v-if="!doctor" class="patient-card__button" type="button">Просмотреть</button>
+    <button v-if="!doctor" class="patient-card__button" type="button">Принять пациента</button>
+    <button v-if="doctor" class="patient-card__button" type="button">Просмотреть назначения</button>
     <div class="patient-card__info">
       <span class="patient-card__date">25 декабря 2020</span>
       <p class="patient-card__name">Яблоневская Аделаида Рауф Александрова</p>
@@ -38,17 +38,18 @@ export default class PatientCard extends Vue {
     box-sizing: border-box;
     min-width: 750px;
     max-width: 865px;
-    height: 220px;
+    min-height: 220px;
     padding: 20px 35px;
     background-color: $white;
     border-radius: 15px;
     position: relative;
     &:hover {
+      box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.25);
       cursor: pointer;
     }
     &__button {
       box-sizing: border-box;
-      width: 200px;
+      min-width: 200px;
       height: 45px;
       padding: 10px;
       border: 1px solid $blue;
@@ -78,6 +79,7 @@ export default class PatientCard extends Vue {
       color: #7c7c7c;
     }
     &__name {
+      max-width: 550px;
       @include reset-text();
       margin-bottom: 15px;
       font-size: 22px;
