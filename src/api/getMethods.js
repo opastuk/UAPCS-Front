@@ -1,15 +1,15 @@
 import request from "./Request.js";
 
 const getRequest = {
-	loadHospitals: function () {
-		return request.get('/hospitals/all');
+	loadHospitals: () => {
+		return request.getRequest('/hospitals/all')
 	},
 
 	loadAvailableDoctors: function (hospitalId) {
 		let now = new Date();
 		let currentDate = now.format('yyyy-mm-dd');
 
-		return request.get(`schedule/by-hospital-and-date?hospital_id=${hospitalId}&date=${currentDate}`);
+		return request.getRequest(`schedule/by-hospital-and-date?hospital_id=${hospitalId}&date=${currentDate}`);
 	},
 
 	authentication: function (authInfo) {
