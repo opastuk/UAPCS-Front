@@ -1,6 +1,6 @@
 <template>
 	<div>
-	<a v-if="!isDoctor" class="apply__link apply__link--button">Обратиться к врачу</a>
+	<a v-if="!isDoctor" class="apply__link apply__link--button" @click="toAskForm">Обратиться к врачу</a>
 	<a v-else class="apply__link apply__link--button">Активные обращения</a>
 	</div>
 </template>
@@ -11,6 +11,10 @@
 	@Component({})
   export default class ApplyButton extends Vue{
 	  @Prop(Boolean) isDoctor
+
+    toAskForm(){
+	    this.$router.push('/ask-form');
+    }
   }
 </script>
 

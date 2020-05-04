@@ -3,7 +3,12 @@
 		<header class="header">
 			<ul class="header__list">
 				<li class="header__item header__item--logo">
-					<a class="header__link">ЕССПА</a>
+					<router-link
+						class="header__link"
+						to="/"
+					>
+						ЕССПА
+					</router-link>
 				</li>
 				<li class="header__item">
 					<apply-button :is-doctor="isDoctor" />
@@ -14,28 +19,34 @@
 			</ul>
 		</header>
 		<div class="page__content">
-      <div class="page__content_main">
-        <div v-if="showSidebar" class="page__sidebar-container">
-          <sidebar class="page__sidebar" :is-doctor="isDoctor" />
-        </div>
-			<div class="page__dash">
-				<slot name="headline" />
-				<slot name="content" />
+			<div class="page__content_main">
+				<div
+					v-if="showSidebar"
+					class="page__sidebar-container"
+				>
+					<sidebar
+						class="page__sidebar"
+						:is-doctor="isDoctor"
+					/>
+				</div>
+				<div class="page__dash">
+					<slot name="headline" />
+					<slot name="content" />
+				</div>
 			</div>
+			<footer class="footer">
+				<ul class="footer__list">
+					<li class="footer__list">
+						<span class="footer__text">Octobuzz 2020</span>
+					</li>
+					<li class="footer__list">
+						<a class="footer__link">
+							<span class="visually-hidden">VirusHack</span>
+						</a>
+					</li>
+				</ul>
+			</footer>
 		</div>
-		<footer class="footer">
-			<ul class="footer__list">
-				<li class="footer__list">
-					<span class="footer__text">Octobuzz 2020</span>
-				</li>
-				<li class="footer__list">
-					<a class="footer__link">
-						<span class="visually-hidden">VirusHack</span>
-					</a>
-				</li>
-			</ul>
-		</footer>
-    </div>
 	</div>
 </template>
 <script>
@@ -55,9 +66,9 @@ export default class CommonPage extends Vue {
 
 	  mounted() {
 	    this.user = this.$store.getters["user/getUserInfo"];
-	    if(this.$router.currentRoute.path === '/') {
+	    if (this.$router.currentRoute.path === '/' || this.$router.currentRoute.path === '/404') {
 	      this.showSidebar = false;
-      }
+	  	}
 	  }
 	  get isDoctor() {
 	    return this.user.role === 2;
@@ -117,6 +128,10 @@ export default class CommonPage extends Vue {
 				justify-content: space-between;
 				align-items: center;
 			}
+      &__link {
+        @include reset-link();
+        color: $black;
+      }
 			&__item {
 				&--logo {
 					padding-left: 70px;

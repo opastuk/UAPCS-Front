@@ -4,9 +4,10 @@ import Home from '../views/Home.vue';
 import Auth from '../views/AuthPage.vue';
 import Register from '../views/RegistrationPage.vue';
 import ChooseUser from "../views/ChooseUser.vue";
-import AskFormPage from "../views/AskFormPage";
-import CommonPage from "../components/CommonPage";
+import AskFormPage from "../views/AskFormPage.vue";
+import CommonPage from "../components/CommonPage.vue";
 import Store from '../store/user.js';
+import NotFoundPage from '../views/NotFoundPage.vue';
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,15 @@ const routes = [
 		name: 'Choose User',
 		component: ChooseUser,
 	},
+  {
+    path: '/404',
+    name: 'Not Found',
+    component: NotFoundPage,
+  },
+  {
+    path: '*',
+    redirect: '/404',
+  },
 	{
 		path: '/test',
 		name: 'TEST',
