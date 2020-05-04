@@ -176,6 +176,7 @@
         </div>
       </div>
       <button class="ask-form__button" type="submit">Отправить</button>
+      <button class="ask-form__button" type="button">Назначения</button>
     </form>
   </div>
 </template>
