@@ -6,15 +6,15 @@
 					<a class="header__link">ЕССПА</a>
 				</li>
 				<li class="header__item">
-					<apply-button :is-doctor="isDoctor"/>
+					<apply-button :is-doctor="isDoctor" />
 				</li>
 				<li class="header__item header__item--sign-in">
-					<a class="header__link">{{user.name}}</a>
+					<a class="header__link">{{ user.name }}</a>
 				</li>
 			</ul>
 		</header>
 		<div class="page__content">
-			<sidebar :is-doctor="isDoctor"/>
+			<sidebar :is-doctor="isDoctor" />
 			<div class="page__dash">
 				<slot name="headline" />
 				<slot name="content" />
@@ -49,11 +49,11 @@ export default class CommonPage extends Vue {
 	  user = {};
 
 	  mounted() {
-	    this.user = this.$store.getters["user/getUserInfo"]
-		}
-		get isDoctor() {
+	    this.user = this.$store.getters["user/getUserInfo"];
+	  }
+	  get isDoctor() {
 	    return this.user.role === 2;
-		}
+	  }
 	}
 </script>
 
@@ -75,9 +75,8 @@ export default class CommonPage extends Vue {
 			overflow: scroll;
 			padding: 30px;
 			background-color: $white;
-			max-width: 70%;
-			min-width: 65%;
-			margin: 30px 50px 30px auto;
+			width: 68%;
+			margin: 30px 0 30px 25px;
 			border-radius: 10px;
 		}
 	}

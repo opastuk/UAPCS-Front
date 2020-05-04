@@ -1,6 +1,9 @@
 <template>
 	<div class="sidebar">
-		<div v-if="!isDoctor" class="sidebar--patient">
+		<div
+			v-if="!isDoctor"
+			class="sidebar--patient"
+		>
 			<ul class="sidebar__list">
 				<li class="sidebar__item">
 					<a class="sidebar__link">Памятки</a>
@@ -19,7 +22,10 @@
 				</li>
 			</ul>
 		</div>
-		<div v-if="isDoctor" class="sidebar--doc">
+		<div
+			v-if="isDoctor"
+			class="sidebar--doc"
+		>
 			<ul class="sidebar__list">
 				<li class="sidebar__item">
 					<a class="sidebar__link">Активные обращения</a>
@@ -42,18 +48,19 @@
 </template>
 
 <script>
-	import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
 	@Component({})
-  export default class Sidebar extends Vue {
+export default class Sidebar extends Vue {
 	  @Prop(Boolean) isDoctor;
-  }
+	}
 </script>
 
 <style scoped lang="scss">
 	.sidebar {
 		box-sizing: border-box;
 		width: 18%;
+		min-width: 200px;
 		height: fit-content;
 		padding: 30px;
 		text-align: center;
