@@ -18,6 +18,7 @@
 
 <script>
 import { Vue, Component } from 'vue-property-decorator';
+import LS from '../localStorage.js';
 
   @Component({})
 export default class ChooseUser extends Vue {
@@ -35,7 +36,7 @@ export default class ChooseUser extends Vue {
     isSecondEntry = false;
 
 		mounted() {
-		  this.isSecondEntry = isSecondEntry();
+		  this.isSecondEntry = LS.isSecondEntry();
     }
 
     chooseUser(userRole) {

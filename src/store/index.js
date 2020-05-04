@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import user from './user.js';
+import getRequest from '../api/getMethods.js'
 
 Vue.use(Vuex);
 
@@ -23,10 +24,10 @@ export default new Vuex.Store({
 	},
 	actions: {
 		receiveHospitals(context) {
-			loadHospitals().then((hospitals) => context.commit('setHospitals', hospitals.data)).catch((e) => console.log('К сожалению мы не нашли поликлиник в базе'));
+			getRequest.loadHospitals().then((hospitals) => context.commit('setHospitals', hospitals.data)).catch((e) => console.log('К сожалению мы не нашли поликлиник в базе'));
 		},
 		receiveDoctorsList(context){
-			loadAvailableDoctors(context.state.currentHospital).then((doctors) => context.commit('setDoctorsList', doctors.data)).catch((e) => console.log('К сожалению ни одного врачча не найдено'));
+			getRequest.loadAvailableDoctors(context.state.currentHospital).then((doctors) => context.commit('setDoctorsList', doctors.data)).catch((e) => console.log('К сожалению ни одного врачча не найдено'));
 		}
 	},
 	modules: {

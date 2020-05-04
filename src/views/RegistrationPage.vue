@@ -60,6 +60,7 @@
 					<label
 						class="registration__label"
 						for="name"
+						v-if="!isDoctor"
 					>Поликлиника:
 						<input
 							id="doctor-clinic"
@@ -142,15 +143,16 @@ export default class RegistrationPage extends Vue {
 		};
     hospitalId = 0;
     hospitals = [];
+    role = 'patient'
 
     mounted() {
-      this.$store.dispatch('receiveHospitals');
-      this.hospitals = this.store.state.hospitals;
+      this.role = this.$router.currentRoute.params.role;
+			if(!this.isDoctor) {
+        this.$store.dispatch('receiveHospitals');
+        this.hospitals = this.store.state.hospitals;
+      }
     }
 
-    get role() {
-		  return this.$router.currentRoute.params.role;
-		}
 
     get identifyType() {
 			return (this.isDoctor ? 'Индивидуальный номер врача:' : 'Полис:');

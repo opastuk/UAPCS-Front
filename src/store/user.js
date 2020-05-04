@@ -1,4 +1,6 @@
 import {register} from "register-service-worker";
+import getRequest from '../api/getMethods.js'
+import postRequest from '../api/postMethods.js'
 
 const state = {
   userRole: 'patient',
@@ -28,10 +30,10 @@ const mutations = {
 
 const actions = {
   auth(context, authInfo) {
-    authentication(authInfo).then((userInfo) => context.commit('setUser', userInfo)).catch((e) => console.log('Ошибка авторизации'))
+    getRequest.authentication(authInfo).then((userInfo) => context.commit('setUser', userInfo)).catch((e) => console.log('Ошибка авторизации'))
   },
   registration(context, registerInfo) {
-    registerUser(registerInfo).then((response) => {
+    postRequest.registerUser(registerInfo).then((response) => {
       new Promise((resolve, reject) => {
         if(response.status === 200){
           resolve()

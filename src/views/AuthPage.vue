@@ -55,6 +55,7 @@
 
 <script>
 import { Vue, Component } from 'vue-property-decorator';
+import LS from '../localStorage';
 
   @Component({})
 export default class AuthPage extends Vue {
@@ -65,8 +66,8 @@ export default class AuthPage extends Vue {
  	   this.$store.dispatch('user/auth', {login: this.login, password: this.password})
 	 }
 
-	 mounted() {
-		 setSecondEntry()
+	 created() {
+		 LS.setSecondEntry()
    }
 
   };
