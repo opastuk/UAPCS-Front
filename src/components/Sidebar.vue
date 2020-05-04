@@ -6,10 +6,10 @@
 		>
 			<ul class="sidebar__list">
 				<li class="sidebar__item">
-					<a class="sidebar__link">Памятки</a>
+					<router-link class="sidebar__link" to="/memo">Памятки</router-link>
 				</li>
 				<li class="sidebar__item">
-					<a class="sidebar__link">Мои обращения</a>
+					<router-link class="sidebar__link" to="/my-appeal">Мои обращения</router-link>
 				</li>
 				<li class="sidebar__item">
 					<a class="sidebar__link">Сообщения</a>
@@ -87,7 +87,7 @@ export default class Sidebar extends Vue {
 	&__link {
 		 display: block;
 		 width: 100%;
-	 @include reset-link();
+     @include reset-link();
 		 color: $black;
 	&:hover {
 		 cursor: pointer;

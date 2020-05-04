@@ -1,21 +1,45 @@
 <template>
 	<div class="memo">
-		<div class="memo__head" @click="openQuestionList">
+		<div
+			class="memo__head"
+			@click="openQuestionList"
+		>
 			<h2 class="memo__headline">
-				Первая помощь при <br/> обморожении
+				Первая помощь при <br /> обморожении
 			</h2>
 		</div>
-		<transition-group name="fade" tag="div">
-		<div v-if="showQuestions" class="memo__body" :key="1">
-			<ul class="memo__list memo__list--main" :key="1">
-				<li class="memo__item memo__item--main" v-for="(question, index) in questions" :key="index"	@click="handleClick(index)" >
-					<p class="memo__item--question">{{question.question}}</p>
-					<transition name="fade">
-						<p v-if="currentActive.includes(index)" class="memo__main-text" v-html="question.answer" />
-					</transition>
-				</li>
-			</ul>
-		</div>
+		<transition-group
+			name="fade"
+			tag="div"
+		>
+			<div
+				v-if="showQuestions"
+				:key="1"
+				class="memo__body"
+			>
+				<ul
+					:key="1"
+					class="memo__list memo__list--main"
+				>
+					<li
+						v-for="(question, index) in questions"
+						:key="index"
+						class="memo__item memo__item--main"
+						@click="handleClick(index)"
+					>
+						<p class="memo__item--question">
+							{{ question.question }}
+						</p>
+						<transition name="fade">
+							<p
+								v-if="currentActive.includes(index)"
+								class="memo__main-text"
+								v-html="question.answer"
+							/>
+						</transition>
+					</li>
+				</ul>
+			</div>
 		</transition-group>
 	</div>
 </template>
@@ -24,32 +48,32 @@
 import { Vue, Component} from 'vue-property-decorator';
 
 const QUESTIONS = [
-  {
-    question: 'Что такое Обморожение?',
-    answer: 'Тестовый текст - поменяйте на что-то осмысленное',
-  },
+	{
+		question: 'Что такое обморожение?',
+		answer: 'Тестовый текст - поменяйте на что-то осмысленное',
+	},
 ];
+
   @Component({})
 export default class MemoCard extends Vue {
     currentActive = [];
     showQuestions = false
 
-		openQuestionList(){
-		  this.showQuestions = !this.showQuestions
-		}
+    openQuestionList(){
+		  this.showQuestions = !this.showQuestions;
+    }
 
     handleClick(id) {
-      if (this.currentActive.includes(id)) {
-        this.currentActive.splice(this.currentActive.indexOf(id), 1);
-      } else {
-        this.currentActive.push(id);
-      }
+    	if (this.currentActive.includes(id)) {
+    		this.currentActive.splice(this.currentActive.indexOf(id), 1);
+    	} else {
+    		this.currentActive.push(id);
+    	}
     }
 
     get questions() {
-      return QUESTIONS
+    	return QUESTIONS;
     }
-
 
   }
 </script>
@@ -144,8 +168,6 @@ export default class MemoCard extends Vue {
 			margin-top: 10px;
     }
   }
-
-
 
 	@keyframes slideDown {
 		0% {

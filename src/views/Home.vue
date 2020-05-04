@@ -13,9 +13,9 @@
 						alt="ЕССПА - мы дорожим вашим временем"
 						width="600px"
 					/>
-					<button class="landing__button">
+					<router-link class="landing__button" to="/auth">
 						Присоединиться
-					</button>
+					</router-link>
 				</section>
 				<section class="landing__section landing__section--features">
 					<h2 class="visually-hidden">
@@ -156,6 +156,7 @@ export default class Home extends Vue {
       position: absolute;
       left: 30px;
       bottom: 30px;
+      text-decoration: none;
       &:hover,
       &:focus {
         cursor: pointer;

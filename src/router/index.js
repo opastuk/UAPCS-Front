@@ -8,7 +8,8 @@ import AskFormPage from "../views/AskFormPage.vue";
 import CommonPage from "../components/CommonPage.vue";
 import Store from '../store/user.js';
 import NotFoundPage from '../views/NotFoundPage.vue';
-import MemoCard from '../components/MemoCard';
+import MemoPage from '../views/MemoPage.vue';
+import MyAppealPage from '../views/MyAppealPage';
 
 Vue.use(VueRouter);
 
@@ -43,10 +44,15 @@ const routes = [
     redirect: '/404',
   },
 	{
-		path: '/test3',
-		name: 'Choose User',
-		component: MemoCard,
+		path: '/my-appeal',
+		name: 'Mу Appeal',
+		component: MyAppealPage,
 	},
+  {
+    path: '/memo',
+    name: 'Memo',
+    component: MemoPage,
+  },
 	{
 		path: '/test',
 		name: 'TEST',
