@@ -4,14 +4,10 @@ import Home from '../views/Home.vue';
 import Auth from '../views/AuthPage.vue';
 import Register from '../views/RegistrationPage.vue';
 import ChooseUser from "../views/ChooseUser.vue";
-<<<<<<< HEAD
-import CommonPage from "../views/CommonPage";
 import AskForm from "../components/AskForm";
-=======
 import CommonPage from "../components/CommonPage";
 import Store from '../store/user.js';
 
->>>>>>> stage
 Vue.use(VueRouter);
 
 const routes = [
@@ -39,28 +35,30 @@ const routes = [
 		path: '/test',
 		name: 'TEST',
 		component: CommonPage,
-<<<<<<< HEAD
+    beforeEnter: (to, from, next) => {
+			if(!Store.state.isAuth) {
+				next({name: 'Auth'})
+			} else {
+				next({name: 'TEST'});
+			}
+		}
 	},
 	{
 		path: '/test1',
-		name: 'TEST',
+		name: 'TEST1',
 		component: AskForm,
+		beforeEnter: (to, from, next) => {
+			if(!Store.state.isAuth) {
+				next({name: 'Auth'})
+			} else {
+				next();
+			}
+		}
 	},
-=======
-	}
->>>>>>> stage
 ];
 
 const router = new VueRouter({
 	routes,
 });
-
-router.beforeEach((to, from, next) => {
-	if(to.name !== 'Auth' && !Store.state.isAuth) {
-		next({ name: 'Auth'})
-	} else {
-		next()
-	}
-})
 
 export default router;

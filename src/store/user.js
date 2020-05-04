@@ -6,7 +6,7 @@ const state = {
   userRole: 'patient',
   userId: '11111111111',
   userName: 'Ivan',
-  isAuth: true,
+  isAuth: false,
 };
 const getters = {
   getUserInfo(state) {

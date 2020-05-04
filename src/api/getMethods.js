@@ -18,7 +18,7 @@ const getRequest = {
 			res(
 				{
 					id: 1,
-					role: 'doctor',
+					role: 2,
 					name: 'Ivan',
 				}
 			);

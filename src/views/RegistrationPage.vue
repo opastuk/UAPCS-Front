@@ -67,7 +67,7 @@
 							class="registration__input"
 							type="select"
 							name="clinic"
-							v-model="hospitalId"
+							v-model="userInfo.hospitalId"
 							required
 							v-if="!isDoctor"
 						/>
@@ -81,7 +81,7 @@
 							class="registration__input"
 							type="email"
 							name="email"
-							v-model="userInfo.mail"
+							v-model="userInfo.email"
 							placeholder="ivanov@gmail.com"
 							required
 						/>
@@ -140,10 +140,10 @@ export default class RegistrationPage extends Vue {
 			mobilePhone: '',
 			password: '',
 			role: this.role,
+      hospitalId: 0,
 		};
-    hospitalId = 0;
     hospitals = [];
-    role = 'patient'
+    role = 1
 
     mounted() {
       this.role = this.$router.currentRoute.params.role;
@@ -159,13 +159,13 @@ export default class RegistrationPage extends Vue {
 		}
 
 		get isDoctor() {
-      return this.role === 'doctor';
+      return this.role === 2;
 		}
 
 		send() {
 			this.$store.dispatch('user/registration', this.userInfo).then(() => {
-        this.$store.commit('setHospital', this.hospitalId);
-			  this.$router.push('/asuth')
+        this.$store.commit('setHospital', this.userInfo.hospitalId);
+			  this.$router.push('/auth')
       })
 		}
   };
