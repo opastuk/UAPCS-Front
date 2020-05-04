@@ -74,14 +74,14 @@ export default class PatientCard extends Vue {
     }
     &__date {
       display: inline-block;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       font-size: 16px;
       color: #7c7c7c;
     }
     &__name {
       max-width: 550px;
       @include reset-text();
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       font-size: 22px;
       line-height: 25px;
     }
