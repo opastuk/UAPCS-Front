@@ -18,24 +18,25 @@
 
 <script>
 import { Vue, Component } from 'vue-property-decorator';
+import LS from '../localStorage.js';
 
   @Component({})
 export default class ChooseUser extends Vue {
     roles = [
 			{
 			  buttonText: 'Я - врач',
-				userRole: 'doctor',
+				userRole: 2,
 			},
 			{
 			  buttonText: 'Я - пациент',
-        userRole: 'patient'
+        userRole: 2,
 			}
 		];
 
     isSecondEntry = false;
 
 		mounted() {
-		  this.isSecondEntry = isSecondEntry();
+		  this.isSecondEntry = LS.isSecondEntry();
     }
 
     chooseUser(userRole) {

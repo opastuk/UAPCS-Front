@@ -1,25 +1,29 @@
 import request from "./Request.js";
 
-global.loadHospitals = () => {
-	return request.get('/hospitals/all');
-};
+const getRequest = {
+	loadHospitals: () => {
+		return request.getRequest('/hospitals/all')
+	},
 
-global.loadAvailableDoctors = (hospitalId) => {
-	let now = new Date();
-	let currentDate = now.format('yyyy-mm-dd');
+	loadAvailableDoctors: function (hospitalId) {
+		let now = new Date();
+		let currentDate = now.format('yyyy-mm-dd');
 
-	return request.get(`schedule/by-hospital-and-date?hospital_id=${hospitalId}&date=${currentDate}`);
-};
+		return request.getRequest(`schedule/by-hospital-and-date?hospital_id=${hospitalId}&date=${currentDate}`);
+	},
 
-global.authentication = (authInfo) => {
-	return new Promise((res) => {
-		console.log(authInfo)
-		res(
-			{
-				id: 1,
-				role: 'doctor',
-				name: 'Ivan',
-			}
-		);
-	})
+	authentication: function (authInfo) {
+		return new Promise((res) => {
+			console.log(authInfo)
+			res(
+				{
+					id: 1,
+					role: 2,
+					name: 'Ivan',
+				}
+			);
+		})
+	}
 }
+
+export default getRequest

@@ -41,4 +41,11 @@
     src: url("/assets/fonts/Roboto-Bold.ttf");
     font-weight: 500;
   }
+
+  @font-face {
+    font-family: "Myriad pro";
+    src: url("/assets/fonts/MyriadPro-Regular.ttf");
+    font-weight: 400;
+  }
+
 </style>
