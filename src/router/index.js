@@ -36,10 +36,10 @@ const routes = [
 		name: 'TEST',
 		component: CommonPage,
     beforeEnter: (to, from, next) => {
-			if(!Store.state.isAuth) {
+			if(to.name !== 'Auth' && !Store.state.isAuth) {
 				next({name: 'Auth'})
 			} else {
-				next({name: 'TEST'});
+				next();
 			}
 		}
 	},
@@ -48,7 +48,7 @@ const routes = [
 		name: 'TEST1',
 		component: AskForm,
 		beforeEnter: (to, from, next) => {
-			if(!Store.state.isAuth) {
+			if(to.name !== 'Auth' && !Store.state.isAuth) {
 				next({name: 'Auth'})
 			} else {
 				next();
