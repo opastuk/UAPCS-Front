@@ -10,6 +10,7 @@ import Store from '../store/user.js';
 import NotFoundPage from '../views/NotFoundPage.vue';
 import MemoPage from '../views/MemoPage.vue';
 import MyAppealPage from '../views/MyAppealPage';
+import ActiveAppealPage from '../views/ActiveAppealPage';
 
 Vue.use(VueRouter);
 
@@ -48,6 +49,11 @@ const routes = [
 		name: 'Mу Appeal',
 		component: MyAppealPage,
 	},
+  {
+    path: '/active-appeal',
+    name: 'Active Appeal',
+    component: ActiveAppealPage,
+  },
   {
     path: '/memo',
     name: 'Memo',

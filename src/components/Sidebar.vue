@@ -28,7 +28,7 @@
 		>
 			<ul class="sidebar__list">
 				<li class="sidebar__item">
-					<a class="sidebar__link">Активные обращения</a>
+					<router-link class="sidebar__link" to="/active-appeal">Активные обращения</router-link>
 				</li>
 				<li class="sidebar__item">
 					<a class="sidebar__link">Мои пациенты</a>
