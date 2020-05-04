@@ -75,8 +75,8 @@ export default class CommonPage extends Vue {
 			overflow: scroll;
 			padding: 30px;
 			background-color: $white;
-			max-width: 70%;
-			min-width: 65%;
+			max-width: 80%;
+			min-width: 70%;
 			margin: 30px 50px 30px auto;
 			border-radius: 10px;
 		}
