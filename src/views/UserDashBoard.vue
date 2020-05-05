@@ -13,7 +13,6 @@
       </div>
 		</template>
 		<template v-slot:content>
-			<patient-card class="patient-card" :is-doctor="isDoctor"/>
 			<patient-card v-for="(apply, index) in cards" class="patient-card" :is-doctor="isDoctor" :apply="apply" :key="index"/>
 		</template>
 	</common-page>

@@ -5,6 +5,7 @@
 			@click="openQuestionList"
 		>
 			<h2 class="memo__headline">
+				<img class="appeal-icon" :src="imgSrc" height="43px" width="43px" alt="appeal">
 				Первая помощь при <br /> обморожении
 			</h2>
 		</div>
@@ -45,23 +46,28 @@
 </template>
 
 <script>
-import { Vue, Component} from 'vue-property-decorator';
+import { Vue, Component, Prop} from 'vue-property-decorator';
 
 const QUESTIONS = [
 	{
 		question: 'Что такое обморожение?',
-		answer: 'Тестовый текст - поменяйте на что-то осмысленное',
+		answer: 'Поражение кожных покровов под влиянием низких температур',
 	},
 ];
 
   @Component({})
 export default class MemoCard extends Vue {
+    @Prop(String) icon
     currentActive = [];
     showQuestions = false
 
     openQuestionList(){
 		  this.showQuestions = !this.showQuestions;
     }
+
+    get imgSrc(){
+      return `../../public/img/icons/${this.icon}.svg`
+		}
 
     handleClick(id) {
     	if (this.currentActive.includes(id)) {

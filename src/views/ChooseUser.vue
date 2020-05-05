@@ -25,7 +25,7 @@ export default class ChooseUser extends Vue {
     roles = [
 			{
 			  buttonText: 'Я - врач',
-				userRole: 2,
+				userRole: 1,
 			},
 			{
 			  buttonText: 'Я - пациент',

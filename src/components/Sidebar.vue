@@ -6,18 +6,23 @@
 		>
 			<ul class="sidebar__list">
 				<li class="sidebar__item">
+					<img class="appeal-icon" src="../../public/img/icons/docs.svg" height="43px" width="43px" alt="appeal">
 					<router-link class="sidebar__link" to="/memo">Памятки</router-link>
 				</li>
 				<li class="sidebar__item">
+					<img class="appeal-icon" src="../../public/img/icons/appeal.svg" height="43px" width="43px" alt="appeal">
 					<router-link class="sidebar__link" to="/my-appeal">Мои обращения</router-link>
 				</li>
 				<li class="sidebar__item">
+					<img class="appeal-icon" src="../../public/img/icons/message.svg" height="43px" width="43px" alt="appeal">
 					<a class="sidebar__link">Сообщения</a>
 				</li>
 				<li class="sidebar__item">
+					<img class="appeal-icon" src="../../public/img/icons/settings.svg" height="43px" width="43px" alt="appeal">
 					<a class="sidebar__link">Настройки</a>
 				</li>
 				<li class="sidebar__item">
+					<img class="appeal-icon" src="../../public/img/icons/close.svg" height="43px" width="43px" alt="appeal">
 					<a class="sidebar__link">Выйти</a>
 				</li>
 			</ul>

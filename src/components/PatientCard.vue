@@ -32,6 +32,9 @@ export default class PatientCard extends Vue {
     @Prop(Boolean) isDoctor;
     @Prop(Object) apply;
 
+    mounted(){
+      console.log(this.apply);
+    }
   }
 </script>
 

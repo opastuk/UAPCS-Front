@@ -6,7 +6,7 @@
 			</h1>
 		</template>
 		<template v-slot:content>
-			<memo-card />
+			<memo-card :icon="icon"/>
 		</template>
 	</common-page>
 </template>
@@ -23,7 +23,7 @@ import MemoCard from "../components/MemoCard";
   	}
   })
 export default class MemoPage extends Vue {
-
+		icon = 'freez'
   }
 </script>
 

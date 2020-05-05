@@ -179,16 +179,47 @@
           <input class="ask-form__input ask-form__input--doctor" id="doctor-pick" name="doctor-pick"  type="text" required>
         </div>
       </div>
-      <button class="ask-form__button" type="submit">Отправить</button>
+      <div class="ask-form__button" @click="sendApply">Отправить</div>
     </form>
   </div>
 </template>
 
 <script>
   import { Vue, Component, Prop } from 'vue-property-decorator';
+  import { mapState } from 'vuex';
+  import helper from "../helper.js";
+  import userRequests from "../api/userRequests.js";
 
-  @Component({})
+  @Component({
+    computed: {
+      ...mapState('user', {
+        user: state => state.userInfo,
+      })
+    }
+  })
   export default class AskForm extends Vue {
+    form = {
+      patientId: '',
+      doctorId: 1,
+      date: '',
+      description: {
+        name: '',
+        age: 25,
+        birthDate: '',
+      }
+    }
+
+    mounted() {
+      let{patientId, date, description: {name, birthDate}} = this.form;
+      patientId = this.user.id
+      date = helper.currentDate();
+      name = this.user.name;
+      birthDate = this.user.birthDate;
+    }
+
+    sendApply() {
+      userRequests.createTask(this.form).then((response) => this.$router.push('/user-dash'))
+    }
   }
 </script>
 
@@ -230,6 +261,8 @@
     &__button {
       @include button();
       padding: 15px 45px;
+      display: flex;
+      justify-content: center;
     }
     &__label {
       display: block;

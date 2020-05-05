@@ -7,6 +7,10 @@ const userRequests = {
   loginUser: (loginData) => {
     return request.post('/login', JSON.stringify(loginData))
   },
+  createTask: (taskData) => {
+    taskData.description = toString(taskData.description)
+    return request.post('/tasks/create', JSON.stringify(taskData))
+  }
 };
 
 export default userRequests;

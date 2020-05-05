@@ -67,7 +67,7 @@ export default class AuthPage extends Vue {
  	 enter() {
      userRequests.loginUser(this.loginInfo).then((response) => {
        this.$store.commit('user/setUser', response.data);
-       this.$router.push()
+       this.$router.push('/user-dash');
      })
 	 }
 

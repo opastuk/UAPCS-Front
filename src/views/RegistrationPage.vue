@@ -162,7 +162,7 @@ export default class RegistrationPage extends Vue {
 		}
 
 		get isDoctor() {
-      return this.role === 2;
+      return this.role === 1;
 		}
 
 		formatBeforeSend(payload) {
