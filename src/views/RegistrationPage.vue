@@ -188,6 +188,7 @@ export default class RegistrationPage extends Vue {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: $white;
   &__headline {
     @include headline();
     margin-bottom: 55px;

@@ -13,7 +13,7 @@
 						alt="ЕССПА - мы дорожим вашим временем"
 						width="600px"
 					/>
-					<router-link class="landing__button" to="/auth">
+					<router-link class="landing__button" to="/register/:role">
 						Присоединиться
 					</router-link>
 				</section>
