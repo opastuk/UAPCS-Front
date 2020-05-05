@@ -80,6 +80,10 @@ export default class AuthPage extends Vue {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: $white;
+  background-image: url("../assets/img/auth.svg");
+  background-repeat: repeat;
+  background-position: -60px 70px;
   &__wrapper {
     display: flex;
     flex-direction: column;
@@ -90,6 +94,7 @@ export default class AuthPage extends Vue {
     padding: 40px;
     border: 5px solid $green;
     border-radius: 15px;
+    background-color: $white;
   }
   &__headline {
     @include headline();
