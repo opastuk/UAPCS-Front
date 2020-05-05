@@ -82,9 +82,9 @@ export default class MemoCard extends Vue {
   .memo {
     &__head {
       box-sizing: border-box;
-      min-width: 800px;
-      max-width: 865px;
-      height: 220px;
+      min-width: 600px;
+      max-width: 750px;
+      height: 190px;
       padding: 30px 40px;
       display: flex;
       align-items: center;
@@ -101,15 +101,15 @@ export default class MemoCard extends Vue {
       padding-left: 195px;
       color: $white;
       font-family: "Myriad pro",sans-serif;
-      font-size: 48px;
-      line-height: 58px;
+      font-size: 40px;
+      line-height: 50px;
       font-weight: 300;
       &::before {
         content: ""; /*сюда идет иконка памятки*/
-        width: 160px;
-        height: 160px;
+        width: 150px;
+        height: 150px;
         position: absolute;
-        top: 30px;
+        top: 20px;
         left: 40px;
         background-color: $white;
         border-radius: 100px;
@@ -125,8 +125,8 @@ export default class MemoCard extends Vue {
     }
     &__body {
       box-sizing: border-box;
-      min-width: 800px;
-      max-width: 865px;
+      min-width: 600px;
+      max-width: 750px;
       min-height: 280px;
 			height: fit-content;
       padding: 40px 40px 25px 40px;

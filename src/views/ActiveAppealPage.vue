@@ -30,7 +30,18 @@ export default class ActiveAppealPage extends Vue {
   .active-appeal {
     &__headline {
       @include reset-text();
-      margin-bottom: 50px;
+      padding-bottom: 30px;
+      margin-bottom: 35px;
+      position: relative;
+      &::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: #888888;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
     }
   }
 </style>
