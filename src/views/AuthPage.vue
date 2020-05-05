@@ -83,7 +83,7 @@ export default class AuthPage extends Vue {
   background-color: $white;
   background-image: url("../assets/img/auth.svg");
   background-repeat: repeat;
-  background-position: -60px 70px;
+  background-position: -60px 66px;
   &__wrapper {
     display: flex;
     flex-direction: column;
