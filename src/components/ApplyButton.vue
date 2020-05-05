@@ -1,7 +1,7 @@
 <template>
 	<div>
-	<a v-if="!isDoctor" class="apply__link apply__link--button" @click="toAskForm">Обратиться к врачу</a>
-	<a v-else class="apply__link apply__link--button">Активные обращения</a>
+	<router-link v-if="!isDoctor" class="apply__link apply__link--button" to="/ask-form">Обратиться к врачу</router-link>
+	<router-link v-else class="apply__link apply__link--button" to="/active-appeal">Активные обращения</router-link>
 	</div>
 </template>
 

@@ -33,7 +33,7 @@
 				</li>
 				<li class="sidebar__item">
 					<img class="icon" src="../../public/img/icons/patient.svg" height="43px" width="43px" alt="patients">
-					<router-link class="sidebar__link" to="/my-patients">Мои пациенты</router-link>
+					<router-link class="sidebar__link" to="/user-dash">Мои пациенты</router-link>
 				</li>
 				<li class="sidebar__item">
 					<img class="icon" src="../../public/img/icons/message.svg" height="43px" width="43px" alt="patients">
