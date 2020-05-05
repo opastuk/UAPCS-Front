@@ -91,7 +91,7 @@ export default class MemoCard extends Vue {
       background-color: #3d336d;
       border-radius: 40px;
       position: relative;
-			z-index: 10000;
+			z-index: 1;
       &:hover {
         cursor: pointer;
       }
@@ -148,10 +148,12 @@ export default class MemoCard extends Vue {
       justify-content: center;
       position: relative;
 			padding: 10px;
+      cursor: pointer;
 
 			&--question{
 				position: relative;
 				margin: 0;
+        padding-bottom: 10px;
 				&::after {
 					content: "";
 					width: 100%;
@@ -193,15 +195,15 @@ export default class MemoCard extends Vue {
 	}
 	.fade-enter-active, .fade-leave-active {
 		animation-name: slideDown;
-		animation-duration: .3s;
-		animation-timing-function: ease;
+		animation-duration: .5s;
+		animation-timing-function: ease-in-out;
 		visibility: visible !important;
 	}
 
 	.fade-enter, .fade-leave-to {
 		animation-name: slideUp;
-		animation-duration: .3s;
-		animation-timing-function: ease;
+		animation-duration: .5s;
+		animation-timing-function: ease-in-out;
 		visibility: visible !important;
 	}
 </style>
