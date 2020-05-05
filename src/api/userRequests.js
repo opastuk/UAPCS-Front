@@ -6,7 +6,7 @@ const userRequests = {
   },
   loginUser: (loginData) => {
     return request.post('/login', JSON.stringify(loginData))
-  }
+  },
 };
 
 export default userRequests;

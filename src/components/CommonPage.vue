@@ -13,8 +13,8 @@
 				<li class="header__item">
 					<apply-button :is-doctor="isDoctor" />
 				</li>
-				<li class="header__item header__item--sign-in">
-					<a class="header__link">{{ user.name }}</a>
+				<li class="header__item header__item--sign-in" @click="handleClick">
+					<a class="header__link" >{{ user.name || 'Войти' }}</a>
 				</li>
 			</ul>
 		</header>
@@ -70,6 +70,15 @@ export default class CommonPage extends Vue {
 	      this.showSidebar = false;
 	  	}
 	  }
+
+	  handleClick() {
+	    if(!this.user.name) {
+	      this.$router.push('/auth')
+			} else {
+	      this.$router.push('/user-dash')
+			}
+		}
+
 	  get isDoctor() {
 	    return this.user.role === 2;
 	  }

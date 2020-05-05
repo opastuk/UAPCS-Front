@@ -9,9 +9,8 @@ import CommonPage from "../components/CommonPage.vue";
 import Store from '../store/user.js';
 import NotFoundPage from '../views/NotFoundPage.vue';
 import MemoPage from '../views/MemoPage.vue';
-import MyAppealPage from '../views/MyAppealPage.vue';
 import ActiveAppealPage from '../views/ActiveAppealPage.vue';
-import CurrentPatientsPage from '../views/CurrentPatientsPage.vue';
+import UserDashBoard from '../views/UserDashBoard.vue';
 
 Vue.use(VueRouter);
 
@@ -45,22 +44,10 @@ const routes = [
     path: '*',
     redirect: '/404',
   },
-	{
-		path: '/my-appeal',
-		name: 'Mу Appeal',
-		component: MyAppealPage,
-		beforeEnter: (to, from, next) => {
-			if (to.name !== 'Auth' && !Store.state.isAuth) {
-				next({name: 'Auth'});
-			} else {
-				next();
-			}
-		}
-	},
   {
-    path: '/my-patients',
+    path: '/user-dash',
     name: 'Mу Patients',
-    component: CurrentPatientsPage,
+    component: UserDashBoard,
 		beforeEnter: (to, from, next) => {
 			if (to.name !== 'Auth' && !Store.state.isAuth) {
 				next({name: 'Auth'});

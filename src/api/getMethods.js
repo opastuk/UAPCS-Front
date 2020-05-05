@@ -1,4 +1,5 @@
 import request from "./Request.js";
+import helper from "../helper.js";
 
 const getRequest = {
 	loadHospitals: () => {
@@ -6,10 +7,13 @@ const getRequest = {
 	},
 
 	loadAvailableDoctors: function (hospitalId) {
-		let now = new Date();
-		let currentDate = now.format('yyyy-mm-dd');
-
-		return request.get(`schedule/by-hospital-and-date?hospital_id=${hospitalId}&date=${currentDate}`);
+		return request.get(`schedule/by-hospital-and-date?hospital_id=${hospitalId}&date=${helper.currentDate()}`);
+	},
+	loadCardsByPatient: function(userId) {
+		return request.get(`/tasks/by-patient?patient_id=${userId}&active=true`)
+	},
+	loadsCardsByDoctor: function(doctorId) {
+		return request.get(`/tasks/by-doctor-and-date?doctor_id=${doctorId}&date=${helper.currentDate()}&active=true`)
 	}
 
 }

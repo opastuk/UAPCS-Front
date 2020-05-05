@@ -1,7 +1,7 @@
 <template>
 	<div class="patient-card">
-    <button v-if="doctor" class="patient-card__button" type="button">Принять пациента</button>
-    <button v-if="!doctor" class="patient-card__button" type="button">Просмотреть назначения</button>
+    <button v-if="isDoctor" class="patient-card__button" type="button">Принять пациента</button>
+    <button v-else class="patient-card__button" type="button">Просмотреть назначения</button>
     <div class="patient-card__info">
       <span class="patient-card__date">25 декабря 2020</span>
       <p class="patient-card__name">Яблоневская Аделаида Рауф Александрова</p>
@@ -25,10 +25,12 @@
 </template>
 
 <script>
-import { Vue, Component} from 'vue-property-decorator';
+import { Vue, Component, Prop} from 'vue-property-decorator';
 
   @Component({})
 export default class PatientCard extends Vue {
+    @Prop(Boolean) isDoctor;
+    @Prop(Object) apply;
 
   }
 </script>
