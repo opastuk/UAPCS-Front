@@ -8,6 +8,10 @@ import AskFormPage from "../views/AskFormPage.vue";
 import CommonPage from "../components/CommonPage.vue";
 import Store from '../store/user.js';
 import NotFoundPage from '../views/NotFoundPage.vue';
+import MemoPage from '../views/MemoPage.vue';
+import MyAppealPage from '../views/MyAppealPage.vue';
+import ActiveAppealPage from '../views/ActiveAppealPage.vue';
+import CurrentPatientsPage from '../views/CurrentPatientsPage.vue';
 
 Vue.use(VueRouter);
 
@@ -40,6 +44,26 @@ const routes = [
   {
     path: '*',
     redirect: '/404',
+  },
+	{
+		path: '/my-appeal',
+		name: 'Mу Appeal',
+		component: MyAppealPage,
+	},
+  {
+    path: '/my-patients',
+    name: 'Mу Patients',
+    component: CurrentPatientsPage,
+  },
+  {
+    path: '/active-appeal',
+    name: 'Active Appeal',
+    component: ActiveAppealPage,
+  },
+  {
+    path: '/memo',
+    name: 'Memo',
+    component: MemoPage,
   },
 	{
 		path: '/test',
