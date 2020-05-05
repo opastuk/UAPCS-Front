@@ -49,16 +49,37 @@ const routes = [
 		path: '/my-appeal',
 		name: 'Mу Appeal',
 		component: MyAppealPage,
+		beforeEnter: (to, from, next) => {
+			if (to.name !== 'Auth' && !Store.state.isAuth) {
+				next({name: 'Auth'});
+			} else {
+				next();
+			}
+		}
 	},
   {
     path: '/my-patients',
     name: 'Mу Patients',
     component: CurrentPatientsPage,
+		beforeEnter: (to, from, next) => {
+			if (to.name !== 'Auth' && !Store.state.isAuth) {
+				next({name: 'Auth'});
+			} else {
+				next();
+			}
+		}
   },
   {
     path: '/active-appeal',
     name: 'Active Appeal',
     component: ActiveAppealPage,
+		beforeEnter: (to, from, next) => {
+			if (to.name !== 'Auth' && !Store.state.isAuth) {
+				next({name: 'Auth'});
+			} else {
+				next();
+			}
+		}
   },
   {
     path: '/memo',
