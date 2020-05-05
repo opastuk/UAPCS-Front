@@ -1,11 +1,12 @@
 import request from './Request';
 
 const userRequests = {
-	registerUser: async (registerData) => {
-		const register = {}
-		request.postRequest('/register/user', registerData).then((response) => response.status)
-		return register
-	}
+  registerUser: (registerData) => {
+   return request.post('/register/user', JSON.stringify(registerData))
+  },
+  loginUser: (loginData) => {
+    return request.post('/login', JSON.stringify(loginData))
+  }
 };
 
 export default userRequests;

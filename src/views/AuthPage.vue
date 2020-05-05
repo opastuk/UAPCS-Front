@@ -24,7 +24,7 @@
 					name="login"
 					placeholder="Логин"
 					required
-					v-model="login"
+					v-model="loginInfo.email"
 				/>
 				<label
 					class="auth__label visually-hidden"
@@ -39,15 +39,14 @@
 					name="password"
 					placeholder="Пароль"
 					required
-					v-model="password"
+					v-model="loginInfo.password"
 				/>
-				<button
+				<div
 					class="auth__button"
-					type="submit"
 					@click="enter"
 				>
 					Войти
-				</button>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -56,14 +55,20 @@
 <script>
 import { Vue, Component } from 'vue-property-decorator';
 import LS from '../localStorage';
+import userRequests from '../api/userRequests.js';
 
   @Component({})
 export default class AuthPage extends Vue {
-    login = '';
-    password = '';
+    loginInfo = {
+      email: '',
+      password: '',
+    }
 
  	 enter() {
- 	   this.$store.dispatch('user/auth', {login: this.login, password: this.password})
+     userRequests.loginUser(this.loginInfo).then((response) => {
+       this.$store.commit('user/setUser', response.data);
+       this.$router.push()
+     })
 	 }
 
 	 created() {
@@ -105,6 +110,8 @@ export default class AuthPage extends Vue {
   &__button {
     width: 150px;
     padding: 15px 20px;
+		display: flex;
+		justify-content: center;
     @include button();
     &:hover,
     &:focus {

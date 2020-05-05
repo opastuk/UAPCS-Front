@@ -131,7 +131,6 @@
 import { Vue, Component } from 'vue-property-decorator';
 import userRequests from '../api/userRequests.js'
 import getRequest from "../api/getMethods";
-import router from "../router";
 
   @Component({})
 export default class RegistrationPage extends Vue {
@@ -175,8 +174,7 @@ export default class RegistrationPage extends Vue {
       if(this.userInfo.id) {
         this.userInfo.id = this.formatBeforeSend(this.userInfo.id);
       }
-      userRequests.registerUser(this.userInfo)
-			router.push('/auth');
+      userRequests.registerUser(this.userInfo).then((response) => this.$router.push('/auth')).catch((e) => console.log(e.message))
 		}
   };
 </script>
