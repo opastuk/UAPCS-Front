@@ -11,5 +11,5 @@ gulp.task('svgSprite', function () {
         },
       }
     ))
-    .pipe(gulp.dest('./public/img/icons/'));
+    .pipe(gulp.dest('./public/'));
 });

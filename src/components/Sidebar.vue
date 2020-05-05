@@ -28,18 +28,23 @@
 		>
 			<ul class="sidebar__list">
 				<li class="sidebar__item">
+					<img class="appeal-icon" src="../../public/img/icons/appeal.svg" height="43px" width="43px" alt="appeal">
 					<router-link class="sidebar__link" to="/active-appeal">Активные обращения</router-link>
 				</li>
 				<li class="sidebar__item">
+					<img class="icon" src="../../public/img/icons/patient.svg" height="43px" width="43px" alt="patients">
 					<router-link class="sidebar__link" to="/my-patients">Мои пациенты</router-link>
 				</li>
 				<li class="sidebar__item">
+					<img class="icon" src="../../public/img/icons/message.svg" height="43px" width="43px" alt="patients">
 					<a class="sidebar__link">Сообщения</a>
 				</li>
 				<li class="sidebar__item">
+					<img class="icon" src="../../public/img/icons/settings.svg" height="43px" width="43px" alt="patients">
 					<a class="sidebar__link">Настройки</a>
 				</li>
 				<li class="sidebar__item">
+					<img class="logout-icon" src="../../public/img/icons/close.svg" height="43px" width="43px" alt="patients">
 					<a class="sidebar__link">Выйти</a>
 				</li>
 			</ul>
@@ -94,5 +99,27 @@ export default class Sidebar extends Vue {
 		 text-decoration: underline;
 	 }
 	}
+	}
+	.appeal-icon {
+		position: absolute;
+		top: 0;
+		left: 15px;
+	}
+	.icon {
+		position: absolute;
+		left: 4px;
+		bottom: 14px;
+	}
+
+	.appeal-icon {
+		position: absolute;
+		left: 4px;
+		top: 8px;
+	}
+
+	.logout-icon {
+		position: absolute;
+		left: 4px;
+		bottom: 13px;
 	}
 </style>

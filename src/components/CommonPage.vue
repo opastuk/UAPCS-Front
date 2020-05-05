@@ -3,6 +3,7 @@
 		<header class="header">
 			<ul class="header__list">
 				<li class="header__item header__item--logo">
+					<img class="main-logo" src="../../public/img/icons/list.svg" height="60px" width="60px" alt="logo">
 					<router-link
 						class="header__link"
 						to="/"
@@ -14,6 +15,8 @@
 					<apply-button :is-doctor="isDoctor" />
 				</li>
 				<li class="header__item header__item--sign-in" @click="handleClick">
+					<img v-if="!isDoctor" class="profile-icon" height="35px" width="35px" src="../../public/img/icons/patient.svg" alt="patient">
+					<img v-if="isDoctor" class="profile-icon" height="35px" width="35px" src="../../public/img/icons/doc.svg" alt="patient">
 					<a class="header__link" >{{ user.name || 'Войти' }}</a>
 				</li>
 			</ul>
@@ -37,6 +40,7 @@
 			<footer class="footer">
 				<ul class="footer__list">
 					<li class="footer__list">
+						<img class="team-logo" src="../../public/img/icons/team-logo.svg" alt="logo">
 						<span class="footer__text">Octobuzz 2020</span>
 					</li>
 					<li class="footer__list">
@@ -195,6 +199,7 @@ export default class CommonPage extends Vue {
 			background-color: #111111;
 			&__list {
 				@include reset-list();
+				position: relative;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
@@ -218,5 +223,24 @@ export default class CommonPage extends Vue {
 				}
 			}
 		}
+		.profile-icon {
+			position: absolute;
+			left: 22px;
+			bottom: 13px;
+		}
 
+	.main-logo {
+		position: absolute;
+		left: 0;
+		top: -21px;
+	}
+
+	.team-logo {
+		position: absolute;
+		width: 70px;
+		height: 70px;
+		bottom: -18px;
+		left: -10px;
+		z-index: 1000;
+	}
 </style>

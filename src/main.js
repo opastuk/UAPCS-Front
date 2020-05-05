@@ -5,6 +5,11 @@ import store from './store';
 import './registerServiceWorker';
 import 'normalize.css';
 import VueTheMask from 'vue-the-mask';
+import svg from 'vue-svg-directive';
+
+Vue.use(svg, {
+	filepath: '/public/defs.svg',
+})
 
 Vue.use(VueTheMask)
 

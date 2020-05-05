@@ -92,4 +92,6 @@ export default class UserDashBoard extends Vue {
 	.patient-card{
 		margin-bottom: 10px;
 	}
+
+
 </style>
